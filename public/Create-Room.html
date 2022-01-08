@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=Licorice&family=Ole&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styling.css">
+    <title>Create A Room</title>
+</head>
+<body>
+    <div class="heading">
+        <img class="reel" src="css/reel.webp">
+        <h1>DUMB CHARADES</h1>
+        <img class="light-camera-action" src="css/lights-camera-action.webp">
+    </div>
+    <div class="rounds">
+    <label for="round"><strong>Number of Rounds</strong></label>&emsp;
+    <select id="round" name="round">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    </div>
+    <div class="movies">
+    <label for="movie"><strong>Type of Movie name</strong> </label>&emsp;
+    <select id="movie" name="movie">
+        <option value="hindi">Hindi</option>
+        <option value="english">English</option>
+        <option value="telegu">Telegu</option>
+        <option value="tamil">Tamil</option>
+        <option value="gujrati">Gujrati</option>
+        <option value="marathi">Marathi</option>
+    </select>
+    </div>
+    <div class="room-code">
+		<form action="chat.html">
+			<div class="form-control">
+				<label for="username"><strong>Enter your name</strong></label>&emsp;&emsp;
+				<input
+					class="enter-room-code"
+					type="text"
+					name="username"
+					id="username"
+					placeholder="Enter username..."
+					required
+				/>
+				<br>
+			</div>
+			<div class="form-control">
+				<label for="room"><strong>Enter Room Code</strong></label>&emsp;&emsp;
+				<input
+					class="enter-room-code"
+					type="text"
+					name="room"
+					id="room"
+					placeholder="Generating room code..."
+					required
+				/>
+                <button onclick="GetRandom()" type="button">Generate</button>
+				<br>
+			</div>
+			<button type="submit" class="join-btn">Join Room</button>
+		</form>
+        
+    </div>
+    <script>
+        function makeid(length) { 
+            var result = ''; 
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; 
+            var charactersLength = characters.length; 
+            for ( var i = 0; i < length; i++ ) { 
+                result += characters.charAt(Math.floor(Math.random() * charactersLength)); 
+            } 
+            return result; 
+        }
+        function GetRandom() {
+            var myElement = document.getElementById("room");
+            myElement.value = makeid(10);
+        }
+    </script>
+</body>
+</html>

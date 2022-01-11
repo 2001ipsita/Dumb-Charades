@@ -2,8 +2,8 @@
 //const chatForm = document.getElementById('chat-form');
 //const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
-const userListA = document.getElementsByClassName('team_a');
-const userListB = document.getElementsByClassName('team_b');
+const userListA = document.getElementsByClassName('team_a')[0];
+const userListB = document.getElementsByClassName('team_b')[0];
 
 
 //Get username and roomname from URL
@@ -69,12 +69,12 @@ socket.on('roomusers',({room, users}) =>{
       if(index%2 == 0){
         userListA.appendChild(userName);
         //userListA.appendChild(space);
-        userListA.scrollTop = chatMessages.scrollHeight;
+        userListA.scrollTop = userListA.scrollHeight;
       }else{
         
         userListB.appendChild(userName);
         //userListB.appendChild(space);
-        userListB.scrollTop = chatMessages.scrollHeight;
+        userListB.scrollTop = userListB.scrollHeight;
       }
     });
  }
